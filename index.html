@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHAR_DRAW</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>CHAR DRAW</h1>
+    </header>
+
+    <main>
+        <section id="configuration">
+
+            <div class="con_container" id="image_settings">
+                <label class="input-file">
+                    <span class="input-file-text" type="text"></span>
+                    <input type="file" name="file" id="file_src"  accept=".png,.jpg">        
+                    <span class="input-file-btn">Выберите файл</span>
+                </label>
+                <nav>
+                    <button onclick="drawCanvasImage()" class="btn">Сбросить</button>
+                    <button onclick="pixelate()" class="btn">Пикселизация</button>
+                </nav>
+                <br>
+                <label class="input-size">
+                    <span>степень пикселизации </span>
+                    <input id="pixi" type="number" value="16" min="2" max="32"/>
+                </label>
+
+
+
+            </div>
+            <div class="con_container" id="pixelize_settings">
+                <label class="input-size">
+                    <span style="margin-right: 20px;">размер символа</span>
+                    <div class="number-input">
+                        <button onclick="this.parentNode.querySelector('input[type=number]').stepDown();this.parentNode.querySelector('input[type=number]').onchange();"></button>
+                        <input id="pixel_box_font_size_slider" max="30" min="2" step="1" onchange="res(this.value)" class="quantity" min="10" name="quantity" value="20" type="number">
+                        <button onclick="this.parentNode.querySelector('input[type=number]').stepUp();this.parentNode.querySelector('input[type=number]').onchange();" class="plus"></button>
+                    </div>
+                   
+                </label>
+
+                <label class="input-size">
+                    <span>размер шрифта</span>
+                    <div class="number-input">
+                        <button onclick="this.parentNode.querySelector('input[type=number]').stepDown();this.parentNode.querySelector('input[type=number]').onchange();"></button>
+                        <input id="pixel_char_font_size_slider" onchange="ressf(this.value)" class="quantity" min="5" name="213" value="16" type="number">
+                        <button onclick="this.parentNode.querySelector('input[type=number]').stepUp();this.parentNode.querySelector('input[type=number]').onchange();" class="plus"></button>
+                    </div>
+                </label>
+                <label class="input-size">
+                    <span style="margin-right: 20px;">Фон</span>
+                    <div class="number-input">
+                        <input onchange="change_bg(this.value)" type="color" name="" id="bg_color" value="#000000">
+                    </div>
+                   
+                </label>
+
+                <nav>
+                    <button onclick="generate(this)" class="btn">Генерировать</button>
+                    <button onclick="open_in_new_page()" class="btn">Открыть в новой вкладке</button>
+                </nav>
+
+            </div>
+
+        </section>
+        <section id="frame">
+            <img id="imgSource" src="" alt="" style="display: none;">
+            <canvas id="frame_draw" width="" height=""></canvas>
+            <section id="text-result">
+
+            </section>
+        </section>
+    </main>
+    <script src="/js/libraries.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="./js/input_st.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+
+</html>
